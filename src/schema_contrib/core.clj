@@ -126,7 +126,7 @@
     (io/resource "uri.abnf")
     :input-format :abnf))
 
-(defn uri?
+(defn valid-uri?
   [u]
   (-> u
       uri-parser
@@ -134,7 +134,7 @@
       not))
 
 (def URI
-  (schema/pred uri? 'URI))
+  (schema/pred valid-uri? 'URI))
 
 (defn uri-reference?
   [u]
